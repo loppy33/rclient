@@ -7,20 +7,33 @@ export default function Modal({ setToken, setModal }) {
     const [userData, setUserData] = useState(null);
     const [choice, setChoice] = useState(false);
 
-    useEffect(() => {
-        const delayDebounceFn = setTimeout(() => {
-            if (userName) {
-                getUser(userName, setUserData, setChoice);
-                console.log(userData.name);
-                
-            } else {
-                setUserData(null);
-                setChoice(false);
-            }
-        }, 500); // Delay of 500ms
 
-        return () => clearTimeout(delayDebounceFn);
-    }, [userName]);
+    useEffect(async() => { 
+        if (userName) {
+           await getUser(userName, setUserData, setChoice);
+           return;
+        }
+        setUserData(null);
+        setChoice(false);
+    })
+
+    // useEffect(() => {
+    //     /// 
+    //     // 
+    //     const delayDebounceFn = setTimeout(() => {
+    //         if (userName) {
+    //             getUser(userName, setUserData, setChoice);
+
+    //             console.log(userData.name);
+                
+    //         } else {
+    //             setUserData(null);
+    //             setChoice(false);
+    //         }
+    //     }, 500); // Delay of 500ms навіщо??
+
+    //     return () => clearTimeout(delayDebounceFn);
+    // }, [userName]);
 
     const handleInputChange = (event) => {
         setUserName(event.target.value);
