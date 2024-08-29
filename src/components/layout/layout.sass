@@ -1,0 +1,101 @@
+@import '../../styles/colors.module'
+header
+    .container
+        display: flex
+        justify-content: space-between
+
+        padding: 2vw 0
+        align-items: center
+
+        .hamburger
+            display: none
+
+        .logo
+            font-size: 1.6vw
+            font-weight: 800
+            img
+                width: 8vw
+
+        nav
+            ul
+                display: flex
+                justify-content: space-between
+                align-items: center
+                gap: 3vw
+
+                li
+                    font-size: .8vw
+                    font-weight: 500
+
+                    span
+                        cursor: pointer
+                        opacity: .8
+
+                    a
+                        opacity: .8
+
+                    .active
+                        opacity: 1
+                        padding-bottom: .5vw
+                        border-bottom: 1px solid $mainColor
+
+    .menu
+        position: relative
+
+    .avatar
+        position: relative
+        display: flex
+        align-items: center
+
+        img
+            width: 2.5vw
+            height: 2.5vw
+            cursor: pointer
+            border-radius: 1vw
+            background-color: #000000ab
+            padding: .2vw
+
+        &:hover .logout, .logout:hover  // Добавляем .logout:hover
+            opacity: 1
+            pointer-events: auto // Включаем взаимодействие
+
+        .logout
+            transition: opacity 0.3s ease, background-color 0.3s ease
+            position: absolute
+            cursor: pointer
+            bottom: -75%
+            left: 50%
+            transform: translateX(-50%)
+            opacity: 0 // Изначально скрываем
+            background-color: #000000ab
+            padding: .3vw .8vw
+            border-radius: .8vw
+            white-space: nowrap
+            pointer-events: none // Отключаем взаимодействие, пока скрыто
+
+        .user
+            margin-left: 1vw
+
+            .lang
+                width: 2vw
+                margin-left: 2.4rem
+
+footer
+    .container
+        display: flex
+        justify-content: space-between
+
+        gap: 1vw
+
+        .logo
+            font-size: 24px
+            font-weight: 800
+
+        p
+            font-size: 14px
+
+        svg
+            font-size: 24px
+
+        li
+            line-height: 2rem

@@ -1,0 +1,67 @@
+@import '../../styles/colors.module'
+.Faq
+    h1, h2
+        text-align: center
+
+    h2
+        color: $secondTextColor
+        span
+            border-bottom: 1px solid $mainColor
+            padding-bottom: .2vw
+            color: $secondColor
+
+    .videos__container
+        margin-top: 2.5vw
+        display: flex
+        justify-content: space-between
+        gap: 2vw
+
+        .video
+            img
+                width: 100%
+                height: 18vw
+                object-fit: cover
+                border-radius: 1vw
+
+            p
+                font-weight: 600
+                font-size: 1.6vw
+                line-height: 2vw
+
+    .faq__columns
+        margin: 2vw 0
+        width: 100%
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        grid-gap: 1vw
+        align-items: flex-start
+
+        .faq__column
+            display: grid
+            align-items: center
+            box-sizing: border-box
+            gap: 20px
+            .answer
+
+                cursor: pointer
+                background-color: $backConbg
+                border: 1px solid $borderColor
+                border-radius: 1vw
+                padding: 1vw 1.5vw
+
+                h3
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    font-size: 1.2vw
+                    img
+                        transition: .3s
+
+                        width: 1vw
+
+                p
+                    font-size: 1vw
+                    padding-top: 1vw
+
+                    a
+                        color: $secondColor

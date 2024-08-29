@@ -1,0 +1,53 @@
+@import '../../styles/colors.module'
+
+.Purchases
+    .container
+        display: flex
+        flex-direction: column
+        justify-content: center
+        text-align: center
+
+        h1
+            margin-bottom: 4vh
+            font-size: 2vw
+
+        .history__container
+            background-color: $backConbg
+            padding: 2.5vw
+            border: 1px solid $borderColor
+            display: flex
+            flex-direction: column
+            gap: 2vw
+            height: 35vw
+            overflow: scroll
+            overflow-x: hidden
+            border-radius: 1vw 0vw 0vw 1vw
+            .order
+                background-color: $secBackConbg
+                border: 1px solid $borderColor
+                padding: 1vw
+                border-radius: 1vw
+                img
+                    width: 1vw
+
+                p
+                    display: flex
+                    align-items: center
+                    gap: 1vw
+                    font-size: 1vw
+
+                span
+                    display: flex
+                    align-items: center
+                    gap: .5vw
+                    font-size: .9vw
+
+                .success
+                    color: lightgreen
+
+                .wait
+                    color: lightyellow
+
+                .amount, .date
+                    color: $secondTextColor
+
