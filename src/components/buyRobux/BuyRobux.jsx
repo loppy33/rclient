@@ -21,9 +21,9 @@ export default function BuyRobux({ token, setError, setToken }) {
     const [choice, setChoice] = useState(false);
 
     useEffect(() => {
-        const delayDebounceFn = setTimeout(() => {
+        const delayDebounceFn = setTimeout(() => { // що це чого це таймаут а не інтервал якщо іде 
             if (userName) {
-                getUser(userName, setUserData, setChoice)
+                getUser(userName, setUserData, setChoice) // try catch  перепиши це з чатом гпт він тобі поможе
                     .catch(err => {
                         setError("Ошибка при поиске пользователя");
                         setUserData(null);
@@ -73,10 +73,11 @@ export default function BuyRobux({ token, setError, setToken }) {
 
     const Modals = () => {
         if (!modal) return null;
-
+    // () => setModal('') це в отдельну функцію 
+    // (e) => e.stopPropagation() це нахуя?
         return (
             <div onClick={() => setModal('')} className={styles.overlay__modal}>
-                <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+                <div className={styles.modal} onClick={(e) => e.stopPropagation()}> 
                     <span className={styles.close} onClick={() => setModal('')}>X</span>
                     {
                         modal === 'promocode' && (
@@ -94,6 +95,7 @@ export default function BuyRobux({ token, setError, setToken }) {
                                 />
                                 <button
                                     onClick={() => {
+                                        // в отдельну функцію винести отцюда
                                         applyPromocode(promocode, token.name, setPromocodeBonus, setError)
                                             .catch(err => setError("Ошибка применения промокода"));
                                         setModal('');
@@ -132,7 +134,7 @@ export default function BuyRobux({ token, setError, setToken }) {
                                 <button
                                     style={choice ? { opacity: 1, pointerEvents: 'auto' } : { opacity: 0.5, pointerEvents: 'none' }}
                                     className="main__btn"
-                                    onClick={async () => {
+                                    onClick={async () => { // логіку винести в отдельну функцію нахуй
                                         if (userData) {
                                             await login(userData.name, setToken, userData)
                                                 .catch(err => setError("Ошибка авторизации"));
@@ -174,6 +176,8 @@ export default function BuyRobux({ token, setError, setToken }) {
                                     <h1>Установите цену на Game Pass</h1>
                                     <h2>Цена (на 43% больше, чем {robuxAmount + promocodeBonus} робуксов): {gamePassPrice}</h2>
                                 </div>
+
+                              {/* verifyGamePass перероби якось щоб кетч помилок в одну строку тобі ненада два раза кетчіти setError 2 рази */}
                                 <button
                                     className='main__btn'
                                     onClick={() => verifyGamePass(selectedGame, gamePassPrice, setError, setModal, userData.name, robuxAmount).catch(err => setError("Ошибка проверки Game Pass"))}
@@ -209,6 +213,7 @@ export default function BuyRobux({ token, setError, setToken }) {
 
     return (
         <div className="BuyRobux">
+            {/* це неправильно Modals це компонент а не функція краще юзати <Modals />  */}
             {Modals()}
 
             <div className="main__container">

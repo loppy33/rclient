@@ -180,6 +180,7 @@ export default function Admin({setError}) {
                             <button onClick={() => fetchUserReport(setReportContent)}>Отчет по пользователям</button>
                             <button onClick={() => fetchPromocodeReport(setReportContent)}>Отчет по промокодам</button>
                         </div>
+                        {/* { тут буде помилка поверненна в тебе один стор на 3 реквести не вірно } */}
                         <div>{reportContent}</div>
                     </div>
                 );
